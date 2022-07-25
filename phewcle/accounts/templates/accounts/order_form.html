@@ -1,0 +1,26 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="row">
+    <div class=" col-md-6 ">
+        <div class=" card card-body">
+            <p> <b> you can fill any number of forms and submit here </b></p>
+            <form action="" method="POST">
+
+                {% csrf_token %}
+                <!-- this is a way of transferring data securely -->
+                {{ formset.management_form }}
+                {% for form in formset %}
+                {{form}}
+                <br><br>
+                {% endfor %}
+
+                <input type="submit" value="Submit">
+
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock %}
